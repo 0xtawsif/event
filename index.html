@@ -1,1 +1,833 @@
-this is jamil
+```html
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>মা-বাবার দোয়া পুষ্পালয় | Wedding Decoration</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Serif Bengali', serif;
+            background: #faf8f4;
+            color: #29211c;
+        }
+
+        /* ===== NAVBAR ===== */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eadfd5;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 700;
+            color: #8c5a35;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #49382d;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #a16b3f;
+        }
+
+        /* ===== HERO ===== */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            background:
+                linear-gradient(rgba(45,30,20,.55), rgba(45,30,20,.55)),
+                url("images/hero.jpg") center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: white;
+        }
+
+        .hero-content span {
+            font-size: 17px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 75px);
+            margin: 15px 0;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            margin: 5px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #b47b48;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #8e5d35;
+            transform: translateY(-2px);
+        }
+
+        .btn-light {
+            background: white;
+            color: #76502f;
+        }
+
+        .btn-light:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTION ===== */
+
+        section {
+            padding: 75px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #5a3c28;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #806f63;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ===== CATEGORY ===== */
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            border: 1px solid #d9c5b3;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            color: #624632;
+            transition: .3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #8e603c;
+            color: white;
+            border-color: #8e603c;
+        }
+
+        /* ===== GALLERY ===== */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 7px 25px rgba(60,40,20,.08);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(60,40,20,.15);
+        }
+
+        .card-image {
+            height: 280px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .card:hover img {
+            transform: scale(1.06);
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            font-size: 22px;
+            color: #5b3b26;
+            margin-bottom: 7px;
+        }
+
+        .card-info p {
+            color: #87766b;
+            font-size: 14px;
+        }
+
+        /* ===== ABOUT ===== */
+
+        .about {
+            background: #f1e8df;
+        }
+
+        .about-box {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-box h2 {
+            font-size: 38px;
+            color: #5c3d29;
+            margin-bottom: 20px;
+        }
+
+        .about-box p {
+            line-height: 2;
+            color: #65564d;
+            font-size: 17px;
+        }
+
+        /* ===== CONTACT ===== */
+
+        .contact-box {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            background: white;
+            padding: 45px 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(60,40,20,.08);
+        }
+
+        .contact-box h2 {
+            font-size: 38px;
+            color: #5c3d29;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            background: #2e2119;
+            color: #eee;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer h3 {
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            color: #cbbeb5;
+            font-size: 14px;
+        }
+
+        /* ===== IMAGE MODAL ===== */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0,0,0,.9);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal img {
+            max-width: 95%;
+            max-height: 90vh;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+
+        .floating-buttons {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1500;
+        }
+
+        .floating-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.2);
+        }
+
+        .call {
+            background: #8c603f;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        /* ===== MOBILE ===== */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .card-image {
+                height: 220px;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            section {
+                padding: 55px 15px;
+            }
+        }
+
+        @media (max-width: 520px) {
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .card-image {
+                height: 280px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2,
+            .about-box h2,
+            .contact-box h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+
+<nav>
+    <div class="nav-container">
+
+        <div class="logo">
+            মা-বাবার দোয়া পুষ্পালয়
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">হোম</a></li>
+            <li><a href="#catalog">ক্যাটালগ</a></li>
+            <li><a href="#about">আমাদের সম্পর্কে</a></li>
+            <li><a href="#contact">যোগাযোগ</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- ===== HERO ===== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span>WEDDING & EVENT DECORATION</span>
+
+        <h1>মা-বাবার দোয়া পুষ্পালয়</h1>
+
+        <p>
+            আপনার বিশেষ দিনকে আরও সুন্দর ও স্মরণীয় করে তুলতে
+            আমাদের নান্দনিক সাজসজ্জা।
+        </p>
+
+        <a href="#catalog" class="btn btn-primary">
+            আমাদের ডিজাইন দেখুন
+        </a>
+
+        <a href="tel:01635552772" class="btn btn-light">
+            যোগাযোগ করুন
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ===== CATALOG ===== -->
+
+<section id="catalog">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>আমাদের ক্যাটালগ</h2>
+            <p>আপনার পছন্দের সাজসজ্জা বেছে নিন</p>
+        </div>
+
+
+        <div class="categories">
+
+            <button class="filter-btn active" data-filter="all">
+                সব
+            </button>
+
+            <button class="filter-btn" data-filter="stage">
+                স্টেজ
+            </button>
+
+            <button class="filter-btn" data-filter="holud">
+                গায়ে হলুদ
+            </button>
+
+            <button class="filter-btn" data-filter="entrance">
+                প্রবেশদ্বার
+            </button>
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <!-- STAGE 01 -->
+
+            <div class="card" data-category="stage">
+
+                <div class="card-image">
+                    <img src="images/stage-1.jpg"
+                         alt="Wedding Stage Decoration"
+                         onclick="openImage(this.src)">
+                </div>
+
+                <div class="card-info">
+                    <h3>Royal Wedding Stage</h3>
+                    <p>নান্দনিক ফুল ও লাইটিং দিয়ে স্টেজ সাজসজ্জা।</p>
+                </div>
+
+            </div>
+
+
+            <!-- STAGE 02 -->
+
+            <div class="card" data-category="stage">
+
+                <div class="card-image">
+                    <img src="images/stage-2.jpg"
+                         alt="Wedding Stage Decoration"
+                         onclick="openImage(this.src)">
+                </div>
+
+                <div class="card-info">
+                    <h3>Elegant Stage</h3>
+                    <p>আধুনিক ডিজাইনের সুন্দর বিবাহের স্টেজ।</p>
+                </div>
+
+            </div>
+
+
+            <!-- HOLUD 01 -->
+
+            <div class="card" data-category="holud">
+
+                <div class="card-image">
+                    <img src="images/holud-1.jpg"
+                         alt="Gaye Holud Decoration"
+                         onclick="openImage(this.src)">
+                </div>
+
+                <div class="card-info">
+                    <h3>গায়ে হলুদ সাজ</h3>
+                    <p>হলুদ অনুষ্ঠানের জন্য আকর্ষণীয় ফুল ও ব্যাকড্রপ।</p>
+                </div>
+
+            </div>
+
+
+            <!-- HOLUD 02 -->
+
+            <div class="card" data-category="holud">
+
+                <div class="card-image">
+                    <img src="images/holud-2.jpg"
+                         alt="Gaye Holud Decoration"
+                         onclick="openImage(this.src)">
+                </div>
+
+                <div class="card-info">
+                    <h3>Traditional Holud</h3>
+                    <p>ঐতিহ্যবাহী স্টাইলে গায়ে হলুদের সাজসজ্জা।</p>
+                </div>
+
+            </div>
+
+
+            <!-- ENTRANCE 01 -->
+
+            <div class="card" data-category="entrance">
+
+                <div class="card-image">
+                    <img src="images/entrance-1.jpg"
+                         alt="Wedding Entrance Decoration"
+                         onclick="openImage(this.src)">
+                </div>
+
+                <div class="card-info">
+                    <h3>Floral Entrance</h3>
+                    <p>ফুল দিয়ে সুন্দর ও আকর্ষণীয় প্রবেশদ্বার।</p>
+                </div>
+
+            </div>
+
+
+            <!-- ENTRANCE 02 -->
+
+            <div class="card" data-category="entrance">
+
+                <div class="card-image">
+                    <img src="images/entrance-2.jpg"
+                         alt="Wedding Entrance Decoration"
+                         onclick="openImage(this.src)">
+                </div>
+
+                <div class="card-info">
+                    <h3>Wedding Gate</h3>
+                    <p>বিয়ের অনুষ্ঠানের জন্য বিশেষ গেট সাজসজ্জা।</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== ABOUT ===== -->
+
+<section class="about" id="about">
+
+    <div class="about-box">
+
+        <h2>মা-বাবার দোয়া পুষ্পালয়</h2>
+
+        <p>
+            বিয়ে, গায়ে হলুদ এবং বিভিন্ন অনুষ্ঠানের জন্য
+            সুন্দর ও আকর্ষণীয় স্টেজ, ফুলের সাজসজ্জা,
+            প্রবেশদ্বার এবং ইভেন্ট ডেকোরেশন করে থাকি।
+            আপনার পছন্দ ও অনুষ্ঠানের ধরন অনুযায়ী
+            আমরা সাজসজ্জার ব্যবস্থা করি।
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ===== CONTACT ===== -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <h2>যোগাযোগ করুন</h2>
+
+        <div class="contact-info">
+
+            <p>
+                📍 <strong>ঠিকানা:</strong><br>
+                জামালপুর বাজার, কালীগঞ্জ, গাজীপুর
+            </p>
+
+            <p>
+                📞 <strong>মোবাইল:</strong><br>
+                ০১৬৩৫৫৫২৭৭২
+            </p>
+
+        </div>
+
+
+        <a href="tel:01635552772"
+           class="btn btn-primary">
+            কল করুন
+        </a>
+
+        <a href="https://wa.me/8801635552772"
+           target="_blank"
+           class="btn"
+           style="background:#25D366;color:white;">
+            WhatsApp করুন
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+
+<footer>
+
+    <h3>মা-বাবার দোয়া পুষ্পালয়</h3>
+
+    <p>
+        Wedding & Event Decoration
+    </p>
+
+    <p>
+        © 2026 All Rights Reserved
+    </p>
+
+</footer>
+
+
+<!-- ===== IMAGE MODAL ===== -->
+
+<div class="modal" id="imageModal">
+
+    <span class="close" onclick="closeImage()">
+        &times;
+    </span>
+
+    <img id="modalImage" src="" alt="Decoration Preview">
+
+</div>
+
+
+<!-- ===== FLOATING BUTTONS ===== -->
+
+<div class="floating-buttons">
+
+    <a href="tel:01635552772"
+       class="floating-btn call"
+       title="Call">
+        ☎
+    </a>
+
+    <a href="https://wa.me/8801635552772"
+       target="_blank"
+       class="floating-btn whatsapp"
+       title="WhatsApp">
+        💬
+    </a>
+
+</div>
+
+
+<script>
+
+    // ================================
+    // CATEGORY FILTER
+    // ================================
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".card");
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            filterButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            const filter = button.getAttribute("data-filter");
+
+            cards.forEach(card => {
+
+                const category = card.getAttribute("data-category");
+
+                if (filter === "all" || category === filter) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+
+            });
+
+        });
+
+    });
+
+
+    // ================================
+    // IMAGE POPUP
+    // ================================
+
+    function openImage(src) {
+
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+
+        modalImage.src = src;
+
+        modal.classList.add("show");
+
+    }
+
+
+    function closeImage() {
+
+        document
+            .getElementById("imageModal")
+            .classList.remove("show");
+
+    }
+
+
+    // Close modal when clicking outside image
+
+    document
+        .getElementById("imageModal")
+        .addEventListener("click", function(e) {
+
+            if (e.target === this) {
+                closeImage();
+            }
+
+        });
+
+
+    // ESC key closes image
+
+    document.addEventListener("keydown", function(e) {
+
+        if (e.key === "Escape") {
+            closeImage();
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
+```
